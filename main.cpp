@@ -3,44 +3,36 @@
 
 using namespace std;
 
-double CalculateResult(int &n1, int &n2)
+float CalculateSalaryForDoctor(float HoursTime, float SalaryPerHour)
 {
-    double result = (n1 * n2) / 2;
-    return result;
+    float salary = HoursTime * SalaryPerHour * 1.25;
+    return salary;
+}
+
+float CalculateSalaryForNurse(float HoursTime, float SalaryPerHour)
+{
+    float salary = HoursTime * SalaryPerHour * 1.15;
+    return salary;
+}
+
+float SubstractFromDoctor(float HoursTime, float SalaryPerHour)
+{
+    float result = HoursTime * SalaryPerHour * 1.3; 
+}
+
+float SubstractFromNurse(float HoursTime, float SalaryPerHour)
+{
+    float result = HoursTime * SalaryPerHour * 1.5; 
 }
 
 int main()
 {
-    // DRY - Don't Repeat Yourself
-    srand(time(0));
-    int num1 = rand() % 101; // 20
-    int num2 = rand() % 101; // 25
-    int numFromUser;
-    const int MAX_TRIES = 3;
+    string doctorName = "Mansour";
+    float salaryPerHour = 135.5;
+    float hoursTime = 50.25;
 
-    cout << "What is The result of (" << num1 << " X " << num2 << ") / 2 : ";
-    cin >> numFromUser;
+    float result = CalculateSalaryForDoctor(hoursTime, salaryPerHour);
+    cout << "Salary For Doctor " << doctorName << " is: " << result << endl;
 
-    int i = 0;
-    for (; i < MAX_TRIES; ++i)
-    {
-        if (numFromUser == CalculateResult(num1, num2))
-        {
-            cout << "Success";
-            break;
-        }
-        else
-        {
-            cout << "Try Again : ";
-            cin >> numFromUser;
-        }
-    }
-
-    if (i == MAX_TRIES)
-    {
-        cout << "================================" << endl;
-        cout << "Game Over" << endl;
-        cout << "The Result is " << CalculateResult(num1, num2) << endl;
-        cout << "================================" << endl;
-    }
+    cout << "Bye";
 }

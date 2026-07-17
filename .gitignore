@@ -14,6 +14,8 @@
 # Linker files
 *.ilk
 
+.vscode/
+
 # Debugger Files
 *.pdb
 
